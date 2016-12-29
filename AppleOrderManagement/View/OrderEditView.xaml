@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="AppleOrderManagement.OrderEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AppleOrderManagement"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid Background="Wheat">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="5" Orientation="Horizontal" HorizontalAlignment="Stretch"  Background="Orange">
+            <Button Content="放弃" Command="{Binding GiveupCommand}" Style="{StaticResource ButtonBasic}"/>
+            <Button Content="保存" Command="{Binding SaveCommand}" Style="{StaticResource ButtonBasic}"/>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="订单时间"  Style="{StaticResource TextBlockBasic}"/>
+        <DatePicker Grid.Row="1" Grid.Column="1" Text="{Binding CurrentOrder.CreateDate,Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource DatePickerBasic}"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="订单来源" Style="{StaticResource TextBlockBasic}"/>
+        <ComboBox x:Name="cboOrderSource" Grid.Row="1" Grid.Column="3" SelectedItem="{Binding CurrentOrder.OrderSource}" Style="{StaticResource  ComboBoxBasic}"/>
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <TextBlock Text="苹果规格"  Style="{StaticResource TextBlockBasic}"/>
+            <ComboBox x:Name="cboAppleSpecification" SelectedItem="{Binding CurrentOrder.AppleSpecification}" Style="{StaticResource ComboBoxBasic}" />
+            <TextBlock Text="苹果类型"  Style="{StaticResource TextBlockBasic}"/>
+            <ComboBox  x:Name="cboAppleTpye" SelectedItem="{Binding CurrentOrder.AppleType}" Style="{StaticResource ComboBoxBasic}"/>
+        </StackPanel>
+        <TextBlock Grid.Row="2" Grid.Column="2" Text="订单数量"   Style="{StaticResource TextBlockBasic}"/>
+        <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding CurrentOrder.Quantity}"   Style="{StaticResource TextBoxBasic}"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="订单要求"  Style="{StaticResource TextBlockBasic}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentOrder.OtherRequirement}" Grid.ColumnSpan="3" Style="{StaticResource TextBoxBasic}"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="收件信息"   Style="{StaticResource TextBlockBasic}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding CurrentOrder.CustomerInformation}" Style="{StaticResource TextBoxBasic}"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="发货日期"  Style="{StaticResource TextBlockBasic}"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding CurrentOrder.DeliveryDate}" Style="{StaticResource TextBoxBasic}"/>
+        <TextBlock Grid.Row="5" Grid.Column="2" Text="快递名称"   Style="{StaticResource TextBlockBasic}"/>
+        <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding CurrentOrder.Delivery}" Style="{StaticResource TextBoxBasic}"/>
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="快递号码"   Style="{StaticResource TextBlockBasic}"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding CurrentOrder.DeliveryNumber}" Style="{StaticResource TextBoxBasic}"/>
+        <TextBlock Grid.Row="6" Grid.Column="2" Text="快递要求"   Style="{StaticResource TextBlockBasic}"/>
+        <TextBox Grid.Row="6" Grid.Column="3" Text="{Binding CurrentOrder.DeliveryRequirement}" Style="{StaticResource TextBoxBasic}"/>
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="订单价格"   Style="{StaticResource TextBlockBasic}"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding CurrentOrder.Price}" Style="{StaticResource TextBoxBasic}"/>
+        <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4" Orientation="Horizontal">
+            <TextBlock Text="是否支付"   Style="{StaticResource TextBlockBasic}"/>
+            <CheckBox  IsChecked="{Binding CurrentOrder.IsPaid}" Style="{StaticResource CheckBoxBasic}"/>
+            <TextBlock Text="支付时间"   Style="{StaticResource TextBlockBasic}"/>
+            <TextBlock Text="{Binding CurrentOrder.PayTime}"   Style="{StaticResource TextBlockBasic}"/>
+            <TextBlock Text="是否转账"   Style="{StaticResource TextBlockBasic}"/>
+            <CheckBox  IsChecked="{Binding CurrentOrder.IsTransfered}"   Style="{StaticResource CheckBoxBasic}"/>
+            <TextBlock Text="转账时间"   Style="{StaticResource TextBlockBasic}"/>
+            <TextBlock Text="{Binding CurrentOrder.TransferedTime}"   Style="{StaticResource TextBlockBasic}"/>
+            <CheckBox  IsChecked="{Binding CurrentOrder.IsCanceled}" Style="{StaticResource CheckBoxBasic}"  Content="订单取消"/>
+        </StackPanel>
+        <TextBlock Grid.Row="9" Grid.Column="0" Text="订单反馈" Style="{StaticResource TextBlockBasic}"/>
+        <TextBox Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding CurrentOrder.FeedBack}" Style="{StaticResource TextBoxBasic}"/>
+
+
+
+    </Grid>
+</UserControl>

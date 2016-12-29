@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="AppleOrderManagement.AdminLoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AppleOrderManagement"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel Width="300" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="编辑提权" TextAlignment="Center" Style="{StaticResource TextBlockBasic}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="口令" Style="{StaticResource TextBlockBasic}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="" Style="{StaticResource TextBoxBasic}" HorizontalAlignment="Stretch"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="2" Content="登录" Style="{StaticResource ButtonBasic}"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

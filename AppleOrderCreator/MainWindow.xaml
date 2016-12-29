@@ -1,0 +1,47 @@
+﻿<Window x:Class="AppleOrderCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppleOrderCreator"
+        mc:Ignorable="d"
+        Title="Apple Order Creator" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="订单来源"/>
+            <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding OrderSourceList}" SelectedItem="{Binding AppleOrder.OrderSource,Mode=TwoWay}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="订单要求"/>
+            <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding OrderTypeList}"
+                      SelectedItem="{Binding AppleOrder.OrderContent,Mode=TwoWay}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="包装要求"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding AppleOrder.Package}"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="收件信息"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding AppleOrder.Receiver}"  TextWrapping="Wrap" AcceptsReturn="True"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="发货时间"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding AppleOrder.SendDate}"/>
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="快递要求"/>
+            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding AppleOrder.Delivery}"/>
+            <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Content="生成订单" Command="{Binding CreateCommand}"/>
+        </Grid>
+
+        <TextBox Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" Text="{Binding OrderText}"/>
+
+    </Grid>
+</Window>
