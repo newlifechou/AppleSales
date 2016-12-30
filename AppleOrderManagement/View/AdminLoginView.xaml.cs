@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AppleOrderManagement
+namespace AppleOrderManagement.View
 {
     /// <summary>
     /// AdminLoginView.xaml 的交互逻辑

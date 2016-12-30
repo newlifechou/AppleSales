@@ -112,12 +112,14 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AppleOrderVO.cs" />
     <Compile Include="Model\AppleOrderIntializer.cs" />
+    <Compile Include="Others\CommonNavigation.cs" />
     <Compile Include="Others\TokenEnum.cs" />
     <Compile Include="Service\ExtensionAppleOrder.cs" />
     <Compile Include="Service\AppleOrderService.cs" />
     <Compile Include="Service\ExtensionAppleOrderVO.cs" />
     <Compile Include="Service\CommonService.cs" />
     <Compile Include="Service\ICommonOperation.cs" />
+    <Compile Include="ViewModel\NavigationVM.cs" />
     <Compile Include="ViewModel\OrderDisplayVM.cs" />
     <Compile Include="ViewModel\OrderEditVM.cs" />
     <Compile Include="ViewModel\OrderOutputVM.cs" />
@@ -130,7 +132,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -141,7 +143,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
+    <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

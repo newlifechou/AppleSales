@@ -8,6 +8,7 @@ namespace AppleOrderManagement
 {
     public enum TokenEnum
     {
+        Navigate,
         Add,
         Edit,
         Delete,

@@ -31,6 +31,8 @@ namespace AppleOrderManagement.ViewModel
             SearchCommand = new RelayCommand(ActionSearch);
             GetAllCommand = new RelayCommand(ActionGetAll);
             OutputCommand = new RelayCommand(ActionOutPut);
+
+            Navigation = new RelayCommand(() => { CommonNavigation.GoToNavigation(); });
             #endregion
 
             service = new AppleOrderService();
@@ -101,7 +103,7 @@ namespace AppleOrderManagement.ViewModel
         private void GetAllOrders()
         {
             var orders = service.GetAll(IsDeleted);
-           
+
             AppleOrders = new ObservableCollection<AppleOrderVO>(orders.ToAppleOrderVOs());
             StateInformation = $"检索结果共{AppleOrders.Count}个";
         }
@@ -150,6 +152,7 @@ namespace AppleOrderManagement.ViewModel
         #endregion
 
         #region Commands
+        public RelayCommand Navigation { get; private set; }
         public RelayCommand AddCommand { get; set; }
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand<AppleOrderVO> EditCommand { get; set; }
