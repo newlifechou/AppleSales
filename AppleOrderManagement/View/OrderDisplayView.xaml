@@ -53,139 +53,40 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="订单日期">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.CreateDate,StringFormat={}{0:yyyy-MM-dd}}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="来源">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.OrderSource}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="客户信息">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.CustomerInformation}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="规格">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.AppleSpecification}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="类型">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.AppleType}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="其他要求">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.OtherRequirement}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="数量">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.Quantity}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="快递">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.Delivery}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="发货时间">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.DeliveryDate,StringFormat={}{0:yyyy-MM-dd}}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="快递要求">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.DeliveryRequirement}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="单号">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.DeliveryNumber}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="费用">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.Price}"  Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="是否支付">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.IsPaid}" Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="支付时间">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.PayTime,StringFormat={}{0:yyyy-MM-dd}}"  Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="是否转账">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.IsTransfered}"  Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="转账时间">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.TransferedTime,StringFormat={}{0:yyyy-MM-dd}}"  Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="用户反馈">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.FeedBack}"  Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="订单状态">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.IsCanceled}"  Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="状态备注">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Order.CancelReason}"  Style="{StaticResource TextBlockBasic}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="订单日期" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding CreateDate,StringFormat={}{0:yyyy-MM-dd}}"/>
+                <DataGridTextColumn Header="来源" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding OrderSource}"/>
+                <DataGridTextColumn Header="客户信息" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding CustomerInformation}"/>
+                <DataGridTextColumn Header="规格" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding AppleSpecification}"/>
+                <DataGridTextColumn Header="类型" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding AppleType}"/>
+                <DataGridTextColumn Header="其他要求" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding OtherRequirement}"/>
+                <DataGridTextColumn Header="数量" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="快递" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding Delivery}"/>
+                <DataGridTextColumn Header="发货时间" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding DeliveryDate}"/>
+                <DataGridTextColumn Header="发货要求" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding DeliveryRequirement}"/>
+                <DataGridTextColumn Header="单号" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding DeliveryNumber}"/>
+                <DataGridTextColumn Header="费用" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding Price}"/>
+                <DataGridCheckBoxColumn Header="是否支付" ElementStyle="{StaticResource CheckBoxBasic}"
+                                        Binding="{Binding IsPaid}"/>
+                <DataGridTextColumn Header="支付时间" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding PayTime}"/>
+                <DataGridCheckBoxColumn Header="是否转账" ElementStyle="{StaticResource CheckBoxBasic}"
+                                        Binding="{Binding IsTransfered}"/>
+                <DataGridTextColumn Header="转账时间" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding TransferedTime,StringFormat={}{0:yyyy-MM-dd}}"/>
+                <DataGridTextColumn Header="用户反馈" ElementStyle="{StaticResource TextBlockBasic}"
+                                    Binding="{Binding Feedback}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="2">
