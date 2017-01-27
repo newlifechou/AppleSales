@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AppleOrderManagement.Model;
 using AutoMapper;
+using AppleOrderManagement.Entities;
 
 namespace AppleOrderManagement.Service
 {
@@ -13,7 +14,7 @@ namespace AppleOrderManagement.Service
         private AppleContext db;
         public AppleOrderService()
         {
-            db = new Model.AppleContext();
+            db = new Entities.AppleContext();
         }
         public int Add(AppleOrder order)
         {
