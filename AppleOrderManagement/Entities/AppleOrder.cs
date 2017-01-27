@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppleOrderManagement.Model
+namespace AppleOrderManagement.Entities
 {
     public class AppleOrder
     {

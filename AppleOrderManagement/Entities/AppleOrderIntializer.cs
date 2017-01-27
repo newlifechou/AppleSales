@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-namespace AppleOrderManagement.Model
+namespace AppleOrderManagement.Entities
 {
     public class AppleOrderIntializer : DropCreateDatabaseIfModelChanges<AppleContext>
     {

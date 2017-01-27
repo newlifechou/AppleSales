@@ -111,7 +111,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AppleOrderVO.cs" />
-    <Compile Include="Model\AppleOrderIntializer.cs" />
+    <Compile Include="Entities\AppleOrderIntializer.cs" />
     <Compile Include="Others\CommonNavigation.cs" />
     <Compile Include="Others\TokenEnum.cs" />
     <Compile Include="Service\ExtensionAppleOrder.cs" />
@@ -165,9 +165,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\AdminUser.cs" />
-    <Compile Include="Model\AppleContext.cs" />
-    <Compile Include="Model\AppleOrder.cs" />
+    <Compile Include="Entities\AdminUser.cs" />
+    <Compile Include="Entities\AppleContext.cs" />
+    <Compile Include="Entities\AppleOrder.cs" />
     <Compile Include="View\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
     </Compile>
