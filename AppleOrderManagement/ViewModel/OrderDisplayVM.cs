@@ -8,6 +8,8 @@ using System.Windows;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AutoMapper;
+using AppleOrderManagement.Entities;
 
 namespace AppleOrderManagement.ViewModel
 {
@@ -18,10 +20,13 @@ namespace AppleOrderManagement.ViewModel
         {
             Messenger.Default.Register<AppleOrderVO>(this, TokenEnum.Refresh, ActionRefresh);
 
+
             #region InitialProperties
             StateInformation = "运行正常";
             SearchString = "";
             IsDeleted = false;
+
+            AppleOrders = new ObservableCollection<Model.AppleOrderVO>();
             #endregion
 
             #region IntialCommand
@@ -46,18 +51,17 @@ namespace AppleOrderManagement.ViewModel
             {
                 if (item.IsChecked)
                 {
-                    var order = item.Order;
-                    sb.AppendLine(order.CreateDate.ToString("yyyy-MM-dd"));
-                    sb.AppendLine(order.CustomerInformation);
-                    sb.Append(order.AppleSpecification);
+                    sb.AppendLine(item.CreateDate.ToString("yyyy-MM-dd"));
+                    sb.AppendLine(item.CustomerInformation);
+                    sb.Append(item.AppleSpecification);
                     sb.Append(" ");
-                    sb.Append(order.AppleType);
+                    sb.Append(item.AppleType);
                     sb.Append(" ");
-                    sb.Append(order.Quantity.ToString());
+                    sb.Append(item.Quantity.ToString());
                     sb.AppendLine("箱,快递");
-                    sb.Append(order.Delivery);
+                    sb.Append(item.Delivery);
                     sb.Append(",发货日期");
-                    sb.AppendLine(order.DeliveryDate.ToString("yyyy-MM-dd"));
+                    sb.AppendLine(item.DeliveryDate.ToString("yyyy-MM-dd"));
                     sb.AppendLine();
                 }
             }
@@ -69,11 +73,13 @@ namespace AppleOrderManagement.ViewModel
             GetAllOrders();
         }
 
-        private void ActionDelete(AppleOrderVO orderComplex)
+        private void ActionDelete(AppleOrderVO orderVO)
         {
-            AppleOrder order = orderComplex.Order;
+            var ordervo = orderVO;
             if (MessageBox.Show("确定作废?", "作废", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
+                Mapper.Initialize(cfg => cfg.CreateMap<AppleOrderVO, AppleOrder>());
+                var order = Mapper.Map<AppleOrder>(ordervo);
                 order.IsCanceled = true;
                 service.Update(order);
                 GetAllOrders();
@@ -83,14 +89,21 @@ namespace AppleOrderManagement.ViewModel
         private void ActionEdit(AppleOrderVO orderVO)
         {
             //发送切换编辑视图的消息
-            var order = orderVO.Order;
+            var ordervo = orderVO;
+            Mapper.Initialize(cfg => cfg.CreateMap<AppleOrderVO, AppleOrder>());
+            var order = Mapper.Map<AppleOrder>(ordervo);
+            
             Messenger.Default.Send<AppleOrder>(order, TokenEnum.Edit);
         }
 
         private void ActionSearch()
         {
             var orders = service.GetOrderBySearch(SearchString, IsDeleted);
-            AppleOrders = new ObservableCollection<AppleOrderVO>(orders.ToAppleOrderVOs());
+            Mapper.Initialize(cfg => cfg.CreateMap<AppleOrder, AppleOrderVO>());
+            var ordervos = Mapper.Map<List<AppleOrder>, List<AppleOrderVO>>(orders);
+            AppleOrders.Clear();
+
+            ordervos.ForEach(o => AppleOrders.Add(o));
             StateInformation = $"检索结果共{AppleOrders.Count}个";
         }
 
@@ -103,8 +116,11 @@ namespace AppleOrderManagement.ViewModel
         private void GetAllOrders()
         {
             var orders = service.GetAll(IsDeleted);
+            Mapper.Initialize(cfg => cfg.CreateMap<AppleOrder, AppleOrderVO>());
+            var ordervos = Mapper.Map<List<AppleOrder>, List<AppleOrderVO>>(orders);
+            AppleOrders.Clear();
 
-            AppleOrders = new ObservableCollection<AppleOrderVO>(orders.ToAppleOrderVOs());
+            ordervos.ForEach(o => AppleOrders.Add(o));
             StateInformation = $"检索结果共{AppleOrders.Count}个";
         }
 

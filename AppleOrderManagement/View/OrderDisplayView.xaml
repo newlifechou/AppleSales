@@ -19,7 +19,6 @@
             <Button Content="添加"  Command="{Binding AddCommand}" Style="{StaticResource ButtonBasic}"/>
             <TextBlock Text="客户" Style="{StaticResource TextBlockBasic}"/>
             <TextBox Text="{Binding SearchString}" MinWidth="200" Style="{StaticResource TextBoxBasic}"/>
-            <CheckBox Content="作废订单" Style="{StaticResource  CheckBoxBasic}" IsChecked="{Binding IsDeleted ,Mode=TwoWay}"/>
             <Button Content="搜索" Command="{Binding SearchCommand}" Style="{StaticResource  ButtonBasic}"/>
             <Button Content="全部" Command="{Binding GetAllCommand}" Style="{StaticResource  ButtonBasic}"/>
             <Button Content="导出" Command="{Binding OutputCommand}" Style="{StaticResource ButtonBasic}"/>

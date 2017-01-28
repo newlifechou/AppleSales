@@ -8,6 +8,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using AppleOrderManagement.Model;
 using AppleOrderManagement.Service;
+using AppleOrderManagement.Entities;
 
 namespace AppleOrderManagement.ViewModel
 {

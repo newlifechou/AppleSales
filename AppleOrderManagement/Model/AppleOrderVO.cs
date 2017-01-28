@@ -11,6 +11,11 @@ namespace AppleOrderManagement.Model
     /// </summary>
     public class AppleOrderVO
     {
+        public AppleOrderVO()
+        {
+            OrderID = Guid.NewGuid();
+            IsChecked = false;
+        }
         public Guid OrderID { get; set; }
 
         public DateTime CreateDate { get; set; }
